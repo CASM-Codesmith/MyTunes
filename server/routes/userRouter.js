@@ -5,10 +5,15 @@ const userRouter = express.Router();
 /**
  * CREATE a new user
  */
-userRouter.post('/signup', userController.createUser, (req, res) => {
-  // return/serve the created user object to the client
-  return res.status(200).json(res.locals.newUser);
-});
+userRouter.post(
+  '/signup',
+  userController.createUserId,
+  userController.createUser,
+  (req, res) => {
+    // return/serve the created user object to the client
+    return res.status(200).json(res.locals.newUser);
+  }
+);
 
 /**
  * Login (READ)
@@ -16,9 +21,10 @@ userRouter.post('/signup', userController.createUser, (req, res) => {
 userRouter.post(
   '/login',
   userController.verifyUser,
-  userController.loadUserDashboard,
+  // userController.loadUserDashboard,
   (req, res) => {
-    return res.status(200).json(res.locals.userTracks);
+    // return res.status(200).json('res.locals.userTracks');
+    return res.status(200).json(res.locals.user);
   }
 );
 

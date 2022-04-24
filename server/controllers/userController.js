@@ -32,9 +32,18 @@ const userController = {
       });
     }
 
-    const newUserInfo = { username, password, name, email };
+    const newUserId = res.locals.newUserId;
+
+    const newUserInfo = {
+      _id: newUserId,
+      username,
+      password,
+      name,
+      email,
+    };
     // create student in the database w/ destructured properties
     const newUser = parseQueryAndReturn('INSERT', 'users', newUserInfo);
+    console.log('new user created!:', newUser);
 
     // store new user in res.locals to serve back to client
     res.locals.newUser = newUser;
@@ -42,7 +51,15 @@ const userController = {
     return next();
   },
 
+  createUserId: (req, res, next) => {
+    const newUserId = Math.floor(Math.random() * 1000000);
+    console.log('newUserId:', newUserId);
+    res.locals.newUserId = newUserId;
+    return next();
+  },
+
   verifyUser: (req, res, next) => {
+    console.log('attempting to log in...');
     // body should contain username, password, - maybe userID as well?
     const { username, password } = req.body;
 
@@ -64,6 +81,7 @@ const userController = {
 
     // query DB to see if user and password combo exist
     const user = parseQueryAndReturn('SELECT', 'users', loginInfo);
+    console.log('user:', user);
 
     // store returned user object into res.locals
     res.locals.user = user;
@@ -90,7 +108,7 @@ const userController = {
   },
 
   loadUserDashboard: (req, res, next) => {
-    // get the current user from res.locals.user
+    // get the current user from res.locals.use
     const user = res.locals.user;
 
     // query the database to get the user's tracklist
