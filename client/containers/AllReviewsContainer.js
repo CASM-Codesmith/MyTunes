@@ -16,7 +16,8 @@
  import * as actions from '../actions/actions.js';
 
  const mapStateToProps = state => ({
-  reviews : state.review.queriedReviews
+  reviews : state.review.queriedReviews,
+  user    : state.review.user
 });
 
 const mapDispatchToProps = dispatch => ({

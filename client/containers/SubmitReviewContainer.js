@@ -6,12 +6,15 @@ import * as actions from '../actions/actions.js';
 
 const mapStateToProps = state => ({
     showForm : state.review.showReviewForm,
-    buttonText : state.review.showReviewButtonText
+    buttonText : state.review.showReviewButtonText,
+    user : state.review.user
 });
 
 
 const mapDispatchToProps = dispatch => ({
-    showReviewForm : () => dispatch(actions.showReviewForm())
+    showReviewForm : () => dispatch(actions.showReviewForm()),
+    postReview : (params, user) => postReviewActionDispatch(params, user)
+
 });
 
 class SubmitReviewContainer extends Component {
@@ -23,6 +26,8 @@ class SubmitReviewContainer extends Component {
         let form 
         if(this.props.showForm) {
            form = [<NewReviewForm
+           user = {this.props.user}
+           postReview = {this.props.postReview}
            ></NewReviewForm>]
        } else {
            form = [<div></div>]

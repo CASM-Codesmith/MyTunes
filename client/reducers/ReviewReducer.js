@@ -6,7 +6,8 @@ queriedReviews : [],
 reviewID : 0,
 showReviewInput: false,
 showReviewForm: false,
-showReviewButtonText: "New Review"
+showReviewButtonText: "New Review",
+user : "testUser1"
 //     {
 //     song: 'filler1', artist: 
 // "filler2", album: "filler3", genre: "filler4",
@@ -97,6 +98,8 @@ const  reviewReducer = (state = initialState, action) => {
        }
 
       }
+
+
 
 
 

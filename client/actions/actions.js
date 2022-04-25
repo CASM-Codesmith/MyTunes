@@ -60,24 +60,21 @@ export const queryData = queryResults => ({
     /*******  Post Review *******/
   
   export const postReview = postedReviewResults => ({
-    type: types.POSTREVIEW, 
+    type: types.QUERYDATA, 
     payload: postedReviewResults
   });
 
-  export const postReviewActionDispatch = params => {
+  export const postReviewActionDispatch = (params, user) => {
     return dispatch => {
-        async function postReview(params) { 
-          const fetchURL = `/user/${params.songName}`
+        async function postReview(params, user) { 
+          const fetchURL = `/user/addTrack/${user}`
            const result = await fetch(fetchURL, {
                  method: 'POST', //
                  headers: { 'Content-Type' : 'application/json'},
-                 body: JSON.stringify(params.reviewBody)
+                 body: JSON.stringify(params)
           });
-           const data = result.json()   
-           dispatch(postReview(data))
-          dispatch(postReview(params.reviewBody))
         }
-       postReview(params)
+       postReview(params, user)
     }   
   }
 

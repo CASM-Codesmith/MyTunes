@@ -15,6 +15,7 @@
  import { connect } from 'react-redux';
  import * as actions from '../actions/actions.js';
  import AllReviews from '/client/containers/AllReviewsContainer.js'
+ import  '/client/scss/MainContainer.scss'
  
 const mapStateToProps = state => ({
     reviews : state.review.queriedReviews
@@ -31,7 +32,7 @@ class MainContainer extends Component {
     }
     render() {
         return(
-          <div>
+          <div id="mainContainer">
              <SearchBar
              queryReviews = {this.props.queryReviews}
              state = {this.props.reviews}

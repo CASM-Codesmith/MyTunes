@@ -1,5 +1,5 @@
 import React from 'react';
-//import '../scss/newReview.scss';
+import '../scss/newReviewForm.scss';
 
 const newReviewForm = (props) => {
     let postParams = {};
@@ -22,19 +22,19 @@ const newReviewForm = (props) => {
         postParams['rating'] = e.target.value
     }
     const handleClick = () => {
-        props.postReview(postParams)
+        props.postReview(postParams, props.user)
     }
 
 
     return (
-        <form>
-            <input type="text" placeholder="Song" onChange={handleSongNameChange}/>
-            <input type="text" placeholder="Artist" onChange={handleArtistNameChange}/>
-            <input type="text" placeholder="Album" onChange={handleAlbumNameChange}/>
-            <input type="text" placeholder="Genre" onChange={handleGenreChange}/>
-            <input type="text" placeholder="Rating" onChange={handleRatingChange}/>
-            <textarea type="text" placeholder="Review Body" onChange={handleReviewBodyChange}/>
-            <button id="newReviewSubmit" type="button" onClick={handleClick}>Submit Review</button>
+        <form className="myForm">
+            <input className="newReviewInput" type="text" placeholder="Song" onChange={handleSongNameChange}/>
+            <input className="newReviewInput" type="text" placeholder="Artist" onChange={handleArtistNameChange}/>
+            <input className="newReviewInput" type="text" id="album" placeholder="Album" onChange={handleAlbumNameChange}/>
+            <input className="newReviewInput" id="genre" type="text" placeholder="Genre" onChange={handleGenreChange}/>
+            <input className="newReviewInput" type="text" placeholder="Rating" onChange={handleRatingChange}/>
+            <textarea className="newReviewTextArea" type="text" placeholder="Review Body" onChange={handleReviewBodyChange}/>
+            <button id="submitReview" type="button" onClick={handleClick}>Submit Review</button>
         </form>
     );
 }
