@@ -5,7 +5,8 @@ import * as types from '/client/constants/actionTypes.js';
 
 const initialState = {
 queriedReviews : [],
-reviewID : 0
+reviewID : 0,
+showReviewInput: false
     
 //     {
 //     song: 'filler1', artist: 

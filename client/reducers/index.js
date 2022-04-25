@@ -11,6 +11,7 @@
 
  import { combineReducers } from 'redux';
  import ReviewReducer from '/client/reducers/ReviewReducer.js';
+ import userReducer from './client/reducers/userReducer.js';
 
  // import all reducers here
  
@@ -18,7 +19,8 @@
  // combine reducers
  const reducers = combineReducers({
    // if we had other reducers, they would go here
-   review: ReviewReducer
+   review: ReviewReducer,
+   user: userReducer
  });
  
  

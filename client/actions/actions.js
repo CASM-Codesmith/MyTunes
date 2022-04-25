@@ -36,4 +36,49 @@ export const queryData = queryResults => ({
     }   
   }
 
+  /*******  User Search *******/
 
+  // export const queryUser = queryResults => ({
+  //   type: types.QUERYUSER,
+  //   payload: queryResults
+  // });
+
+  // export const queryUsersActionDispatch = params => {
+  //   return dispatch => {
+  //       function fetchUsers(params) { 
+  //         const fetchURL = `/user/:${params.username}`
+          //  const result = await fetch(fetchURL)
+          //  const data = result.json()   
+          //  dispatch(queryData(data))
+  //         dispatch(queryUser({ username: 'sampleUsername', reviews: [{ song: 'sampleSong', artist: 'sampleArtist', genre: "sampleGenre", RID: 0, showDetails: false }]}))
+  //       }
+  //      fetchUsers(params)
+  //   }   
+  // }
+
+    /*******  Post Review *******/
+  
+  // export const postReview = postedReviewResults => ({
+  //   type: types.POSTREVIEW, 
+  //   payload: postedReviewResults
+  // });
+
+  // params = { songName: 'sampleSongName', reviewBody: 'sampleReviewBody};
+
+  // export const postReviewActionDispatch = params => {
+  //   return dispatch => {
+  //       async function postReview(params) { 
+  //         const fetchURL = `/user/:${params.songName}`
+  //          const result = await fetch(fetchURL, {
+  //                method: 'POST', //
+  //                headers: { 'Content-Type' : 'application/json'},
+  //                body: JSON.stringify(params.reviewBody)
+  //         });
+  //          const data = result.json()   
+  //          dispatch(postReview(data))
+  //         dispatch(postReview(params.reviewBody))
+  //       }
+  //      postReview(params)
+  //   }   
+  // }
+  
