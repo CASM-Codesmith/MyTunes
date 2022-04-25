@@ -11,6 +11,7 @@
 
  import React, {Component} from "react";
  import SearchBar from '/client/components/songSearchBar.js'
+ import SubmitReviewContainer from "./SubmitReviewContainer.js";
  import { connect } from 'react-redux';
  import * as actions from '../actions/actions.js';
  import AllReviews from '/client/containers/AllReviewsContainer.js'
@@ -36,6 +37,7 @@ class MainContainer extends Component {
              state = {this.props.reviews}
              ></SearchBar>
              <AllReviews></AllReviews>
+             <SubmitReviewContainer />
           </div>
         );
       }

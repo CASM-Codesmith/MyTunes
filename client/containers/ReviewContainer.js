@@ -5,7 +5,6 @@
  import  '/client/scss/ReviewContainer.scss'
 
   const ReviewContainer = (props) => {
-
      let display
       if(props.reviewinfo.showDetails) {
          display = [<DetailedReview></DetailedReview>]
@@ -19,7 +18,7 @@
             
             <div className = "cover">
             <ReviewCard
-            song = {props.reviewinfo.song}
+            song = {props.reviewinfo.name}
             artist = {props.reviewinfo.artist}
             album = {props.reviewinfo.album}
             genre = {props.reviewinfo.genre}

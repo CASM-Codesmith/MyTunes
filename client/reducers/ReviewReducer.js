@@ -1,13 +1,12 @@
 
- 
-
 import * as types from '/client/constants/actionTypes.js';
 
 const initialState = {
 queriedReviews : [],
 reviewID : 0,
-showReviewInput: false
-    
+showReviewInput: false,
+showReviewForm: false,
+showReviewButtonText: "New Review"
 //     {
 //     song: 'filler1', artist: 
 // "filler2", album: "filler3", genre: "filler4",
@@ -78,6 +77,26 @@ const  reviewReducer = (state = initialState, action) => {
              queriedReviews: newList
            };
        }
+
+       case types.SHOWREVIEWFORM: {
+         let buttonText
+         let showFormBoolean
+
+         if(!state.showReviewForm) {
+          buttonText = "Hide Form"
+          showFormBoolean = true
+         } else {
+          buttonText = "New Review"
+          showFormBoolean = false
+         }
+         
+         return {
+           ...state,
+           showReviewForm: showFormBoolean,
+           showReviewButtonText: buttonText        
+       }
+
+      }
 
 
 
